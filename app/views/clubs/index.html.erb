@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <h1>Clubs'R'Us</h1>
+  <%= link_to '➕ Add a new club', new_club_path, class:"btn btn-primary" %>
+  <ul>
+    <% @clubs.each do |club| %>
+      <div class="card mt-5" style="width: 18rem;">
+        <div class="card-body">
+          <h3 class="card-title"><strong><%= club.name %></strong></h3>
+            <p class="card-text"><%= club.description %></p>
+            <%= link_to 'More details', club_path(club), class:"btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>

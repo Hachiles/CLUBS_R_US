@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <h1><%= @club.name %></h1>
+  <div class="d-flex">
+    <%= link_to  "Edit #{@club.name}", edit_club_path, class:'btn btn-primary' %> <br>
+    <%= link_to "Delete #{@club.name}", club_path, class:'btn btn-primary', method: :delete, data: { confirm: "Are you sure?" } %>
+  </div> <br>
+  <ul>
+    <li>Capacity: <%= @club.capacity %></li>
+    <li>Price per hour: <%= @club.hourly_price %>€</li>
+    <li>Address: <%= @club.address %></li>
+    <li>Description: <%= @club.description %></li>
+  </ul>
+  <%= link_to "Back to the club list", clubs_path, class:'btn btn-primary' %>
+</div>

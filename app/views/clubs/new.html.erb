@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h1>Add a new club</h1>
+    <%= simple_form_for @club do |f| %>
+      <%= f.input :name, label: "Name" %>
+      <%= f.input :capacity, label: "Capacity", as: :numeric %>
+      <%= f.input :hourly_price, label: "Price per hour", as: :numeric %>
+      <%= f.input :address, label: "Address" %>
+      <%= f.input :description, label: "Description" %>
+      <%= f.submit %>
+    <% end %>
+</div>
