@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 60px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
   text-align: center;
@@ -26,5 +26,13 @@
 
 .slogan {
   align-items: center;
-  padding-top: 10px;
+}
+
+.footer-logo {
+  border-top: 20px 0px;
+}
+
+// provides padding at bottom of the page to make room for the header
+body {
+  padding-bottom: 80px;
 }
