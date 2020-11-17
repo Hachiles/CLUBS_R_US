@@ -48,6 +48,6 @@ class ClubsController < ApplicationController
   private
 
   def club_params
-    params.require(:club).permit(:name, :capacity, :hourly_price, :address, :description)
+    params.require(:club).permit(:name, :capacity, :hourly_price, :address, :description, :photo)
   end
 end

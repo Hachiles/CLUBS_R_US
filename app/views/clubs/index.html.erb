@@ -9,6 +9,9 @@
   <ul>
     <% @clubs.each do |club| %>
       <div class="card mt-5" style="width: 18rem;">
+        <% if club.photo.attached? %>
+          <%= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
+        <% end %>
         <div class="card-body">
           <h3 class="card-title"><strong><%= club.name %></strong></h3>
             <p class="card-text"><%= club.description %></p>
