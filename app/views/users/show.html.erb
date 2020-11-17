@@ -1,0 +1,21 @@
+<div class="container mt-5">
+
+  <h1>Dashboard</h1>
+
+  <p> My booking requests: </p>
+    <ul>
+      <% @bookings.each do |booking| %>
+        <li>
+          <% club = Club.where(:id == booking.club_id).first %>
+          <%= club.name %>, Status: <%= booking.status %>, Start date: <%= booking.start_time %>
+        </li>
+      <% end %>
+    </ul>
+
+  <p> My clubs that people want to book:</p> 
+    <ul>
+      <% @clubs.each do |club| %>
+        <li><%= club.name %></li>
+      <% end %>
+  </ul>
+</div>
