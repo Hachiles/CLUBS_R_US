@@ -13,14 +13,10 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
-    # ||user.admin
-
-    # - record: the restaurant passed to the `authorize` method in controller
-    # - user:   the `current_user` signed in with Devise.
+    record.user == user || user.admin
   end
 
   def destroy?
-    record.user == user
+    record.user == user  || user.admin
   end
 end
