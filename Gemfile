@@ -67,3 +67,5 @@ gem 'devise'
 gem 'pundit'
 
 gem 'faker'
+
+gem 'dotenv-rails', groups: [:development, :test]
