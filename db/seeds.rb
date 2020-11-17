@@ -7,16 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
   20.times do
+    file = URI.open('https://source.unsplash.com/1600x900/?club')
     club = Club.new(
         name: Faker::Game.title,
         capacity: rand(50..2000),
         hourly_price: rand(50..200),
         address: Faker::Address.full_address,
-        description: Faker::Lorem.paragraph_by_chars
-        # image: Faker::LoremFlickr.image(size: '50x60', search_terms: ['clubs', 'venue']),
+        description: Faker::Lorem.paragraph_by_chars,
     )
+    club.photo.attach(io: file, filename: 'club.png', content_type: 'image/png')
     user = User.where(username: "Hachiles").first
     club.user = user
     club.save
