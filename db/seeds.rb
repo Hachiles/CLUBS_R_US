@@ -9,7 +9,7 @@
 require 'faker'
 require "open-uri"
 
-username = User.new(username: "Hachiles")
+seed_user = User.create(username: "seeder", email: "avrilpryce@gmail.com", first_name: "Avril", last_name: "seed", password: "seed")
 
 real_addresses = [
   "Rudi-Dutschke-Straße 26, Berlin",
@@ -18,7 +18,7 @@ real_addresses = [
   "Ritterstraße 26, Berlin",
   "Yorckstraße 2, Berlin",
   "Tucholskystraße 32, Berlin",
-  "Fasanenstraße 81, Berlin",
+  "Fasanenstraße 81, Berlin",exi
   "Köpenicker Str. 76, Berlin",
   "Karl-Marx-Allee 34, Berlin",
   "Brunnenstraße 198, Berlin"
@@ -45,8 +45,7 @@ puts "Starting seed"
         description: Faker::Lorem.paragraph_by_chars,
     )
     club.photo.attach(io: file, filename: 'club.png', content_type: 'image/png')
-    user = User.where(username: username).first
-    club.user = user
+    club.user = seed_user
     club.save
   end
   
