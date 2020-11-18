@@ -1,7 +1,7 @@
 
 .card-container { 
     width: 375px;
-    height: 340px;
+    min-height: 340px;
     .card-image {
         position: relative;
         
@@ -24,7 +24,7 @@
 
     .card-content {
         width: 374px;
-        height: 90px;
+        min-height: 90px;
         background-color: black;
         color: white;
         display: flex;

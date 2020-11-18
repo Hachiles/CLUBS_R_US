@@ -18,7 +18,7 @@ real_addresses = [
   "Ritterstraße 26, Berlin",
   "Yorckstraße 2, Berlin",
   "Tucholskystraße 32, Berlin",
-  "Fasanenstraße 81, Berlin",exi
+  "Fasanenstraße 81, Berlin",
   "Köpenicker Str. 76, Berlin",
   "Karl-Marx-Allee 34, Berlin",
   "Brunnenstraße 198, Berlin"
@@ -40,7 +40,7 @@ puts "Starting seed"
     club = Club.new(
         name: Faker::Game.title,
         capacity: rand(50..2000),
-        hourly_price: rand(50..200),
+        hourly_price: rand(50..200), 
         address: real_addresses[index_num],
         description: Faker::Lorem.paragraph_by_chars,
     )
