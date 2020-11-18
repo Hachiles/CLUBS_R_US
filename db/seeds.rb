@@ -19,7 +19,7 @@ require "open-uri"
         description: Faker::Lorem.paragraph_by_chars,
     )
     club.photo.attach(io: file, filename: 'club.png', content_type: 'image/png')
-    user = User.where(username: "Hachiles").first
+    user = User.where(username: "sdfsdf").first
     club.user = user
     club.save
   end

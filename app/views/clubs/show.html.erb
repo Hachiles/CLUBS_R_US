@@ -1,8 +1,11 @@
 <div class="container mt-5">
+
   <h1><%= @club.name %></h1>
+
   <% if @club.photo.attached? %>
     <%= cl_image_tag @club.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
+
   <div class="d-flex">
     <% if policy(@club).edit? %>
       <%= link_to  "Edit #{@club.name}", edit_club_path, class:'btn btn-primary' %> <br>
@@ -11,6 +14,11 @@
       <%= link_to "Delete #{@club.name}", club_path, class:'btn btn-primary', method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
   </div> <br>
+
+  <% if @club.user_id != current_user.id %>
+    <%= link_to "Book #{@club.name}", new_club_booking_path(@club), class:'btn btn-primary' %>
+  <% end %>
+
   <ul>
     <li>Capacity: <%= @club.capacity %></li>
     <li>Price per hour: <%= @club.hourly_price %>€</li>
