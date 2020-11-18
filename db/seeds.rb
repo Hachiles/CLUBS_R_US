@@ -15,7 +15,7 @@ require "open-uri"
         name: Faker::Game.title,
         capacity: rand(50..2000),
         hourly_price: rand(50..200),
-        address: Faker::Address.full_address,
+        address: Faker::Address.street_address,
         description: Faker::Lorem.paragraph_by_chars,
     )
     club.photo.attach(io: file, filename: 'club.png', content_type: 'image/png')
