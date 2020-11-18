@@ -1,31 +1,35 @@
 <div class="container mt-5">
-  <div class="show-content">
+  <div class="show-content d-flex justify-content-center">
+    <div>
+      <h1 class="header-white text-center"><%= @club.name %></h1>
 
-    <h1 class="header-white"><%= @club.name %></h1>
+        <% if @club.photo.attached? %>
+          <%= cl_image_tag @club.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
 
-    <% if @club.photo.attached? %>
-      <%= cl_image_tag @club.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+        <div class="d-flex justify-content-center">
+          <% if policy(@club).edit? %>
+            <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
+          <% end %>
+          <% if policy(@club).destroy? %>
+            <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </div> <br>
 
-    <div class="d-flex">
-      <% if policy(@club).edit? %>
-        <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
-      <% end %>
-      <% if policy(@club).destroy? %>
-        <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
-      <% end %>
-    </div> <br>
+        <% if @club.user_id != current_user.id %>
+          <%= link_to "Book #{@club.name}", new_club_booking_path(@club), class:'btn btn-primary' %>
+        <% end %>
 
-    <% if @club.user_id != current_user.id %>
-      <%= link_to "Book #{@club.name}", new_club_booking_path(@club), class:'btn btn-primary' %>
-    <% end %>
+        <ul class="show-page-list text-center">
+          <li>Capacity: <%= @club.capacity %></li>
+          <li>Price per hour: <%= @club.hourly_price %>€</li>
+          <li>Address: <%= @club.address %></li>
+          <li>Description: <%= @club.description %></li>
+        </ul>
+          <div class="d-flex justify-content-center">
+          <%= link_to "Back to the club list", clubs_path, class:'button-magenta' %>
+          </div>
+        </div>
 
-    <ul class="show-page-list">
-      <li>Capacity: <%= @club.capacity %></li>
-      <li>Price per hour: <%= @club.hourly_price %>€</li>
-      <li>Address: <%= @club.address %></li>
-      <li>Description: <%= @club.description %></li>
-    </ul>
-    <%= link_to "Back to the club list", clubs_path, class:'button-magenta' %>
   </div>
 </div>
