@@ -12,7 +12,10 @@
           Start date: <%= booking.start_time %>
         </li>
         <li>
-          End date: <%= booking.end_time %>
+          Duration: <%= booking.duration %>h
+        </li>
+        <li>
+          Price: <%= booking.total_price %>€
         </li>
         <li>
           Booking status: <strong><%= booking.status %></strong>
@@ -31,7 +34,10 @@
             Start date: <%= booking.start_time %>
           </li>
           <li>
-            End date: <%= booking.end_time %>
+            Duration: <%= booking.duration %>h
+          </li>
+          <li>
+          Price: <%= booking.total_price %>€
           </li>
           <li>
             Booking status: <strong><%= booking.status %></strong><br> 

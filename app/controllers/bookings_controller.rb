@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.user_id = current_user.id
     @booking.club_id = params[:club_id]
+    @booking.total_price = @booking.club.hourly_price.to_i * booking_params[:duration].to_i
     @booking.save
 
     redirect_to dashboard_path
@@ -25,6 +26,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :status)
+    params.require(:booking).permit(:start_time, :duration, :status)
   end
 end
