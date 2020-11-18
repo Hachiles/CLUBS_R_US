@@ -1,0 +1,37 @@
+
+.card-container { 
+    width: 375px;
+    height: 340px;
+    .card-image {
+        position: relative;
+        
+        img { 
+            width: 374px;
+            height: 258x;
+        }
+        .book-button {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            background: #219653;
+            border-radius: 4px;
+            color: white;
+            padding: 4px 16px;
+            margin: 10px;
+        }
+    
+    }    
+
+    .card-content {
+        width: 374px;
+        height: 90px;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px 10px;
+    }
+}
+
+
+
