@@ -18,7 +18,7 @@ real_addresses = [
   "Ritterstraße 26, Berlin",
   "Yorckstraße 2, Berlin",
   "Tucholskystraße 32, Berlin",
-  "Fasanenstraße 81, Berlin",exi
+  "Fasanenstraße 81, Berlin",
   "Köpenicker Str. 76, Berlin",
   "Karl-Marx-Allee 34, Berlin",
   "Brunnenstraße 198, Berlin"

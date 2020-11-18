@@ -27,3 +27,9 @@ h1 {
 .nav-item > .nav-link {
   color: #8F0058 !important;
 }
+
+.avatar.dropdown-toggle:hover {
+  color: #fff;
+  background-color: #00b3db;
+  border-color: #285e8e; /*set the color you want here*/
+}
