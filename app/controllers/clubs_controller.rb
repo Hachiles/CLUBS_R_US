@@ -18,7 +18,11 @@ class ClubsController < ApplicationController
     @club = Club.new(club_params)
     authorize @club
     @club.user = current_user
-    @club.save
+    if @club.save
+      redirect_to club_path(@club)
+    else
+      render :new
+    end
 
     redirect_to club_path(@club)
   end
