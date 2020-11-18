@@ -9,10 +9,10 @@
 
     <div class="d-flex">
       <% if policy(@club).edit? %>
-        <%= link_to  "Edit #{@club.name}", edit_club_path, class:'btn btn-primary' %> <br>
+        <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
       <% end %>
       <% if policy(@club).destroy? %>
-        <%= link_to "Delete #{@club.name}", club_path, class:'btn btn-primary', method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
       <% end %>
     </div> <br>
 
@@ -26,6 +26,6 @@
       <li>Address: <%= @club.address %></li>
       <li>Description: <%= @club.description %></li>
     </ul>
-    <%= link_to "Back to the club list", clubs_path, class:'btn btn-primary' %>
+    <%= link_to "Back to the club list", clubs_path, class:'button-magenta' %>
   </div>
 </div>
