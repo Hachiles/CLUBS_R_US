@@ -1,7 +1,5 @@
 <div class="container mt-5">
 
-  <h1>Clubs<strong class="text-color">R</strong>Us</h1>
-
   <% if policy(Club).create? %>
     <%= link_to '➕ Add a new club', new_club_path, class:"add-new-club-button" %>
   <% end %>
