@@ -11,3 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-image: url("https://res.cloudinary.com/hachiles/image/upload/v1605601697/pexels-mark-angelo-1587927_ytlhoq.jpg");
+  background-size: cover;
+}

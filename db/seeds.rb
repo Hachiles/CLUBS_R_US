@@ -50,5 +50,3 @@ puts "Starting seed"
   end
   
 puts 'Done!'
-
-
