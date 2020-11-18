@@ -1,13 +1,11 @@
 <div class="container mt-5">
 
-  <h1>Clubs'R'Us</h1>
-
   <% if policy(Club).create? %>
-    <%= link_to '➕ Add a new club', new_club_path, class:"btn btn-primary" %>
+    <%= link_to '➕ Add a new club', new_club_path, class:"add-new-club-button" %>
   <% end %>
   
 
-  <div class="row">
+  <div class="row mb-5">
    <% @clubs.each do |club| %>
     <div class="card-container col-sm mt-5">
       <div class="card-image">
@@ -15,7 +13,6 @@
           <%#= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
         <%# end %>
         <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
-        
         <%= link_to 'More details', club_path(club), class:'view-more-button' %>
       </div>
       <div class="card-content">
@@ -25,14 +22,11 @@
         </div>
         <div class="content-right">
           <p><%= club.address %></p> 
-          <p><%= club.description %></p> 
+          <p><%= club.hourly_price %></p> 
         </div> 
       </div>
     </div>
    <% end %>
    </div>
-
-
-
-
 </div>
+
