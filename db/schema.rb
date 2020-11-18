@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_111934) do
+
+ActiveRecord::Schema.define(version: 2020_11_18_130610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +37,19 @@ ActiveRecord::Schema.define(version: 2020_11_17_111934) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "start_time"
+    t.integer "total_price"
+    t.bigint "club_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "status", default: "Pending"
+    t.integer "duration"
+    t.index ["club_id"], name: "index_bookings_on_club_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.integer "capacity"
@@ -45,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_111934) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_clubs_on_user_id"
   end
 
@@ -65,5 +81,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_111934) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "clubs"
+  add_foreign_key "bookings", "users"
   add_foreign_key "clubs", "users"
 end
