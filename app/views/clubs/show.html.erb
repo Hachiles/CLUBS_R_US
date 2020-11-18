@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="show-content">
 
-    <h1><%= @club.name %></h1>
+    <h1 class="header-white"><%= @club.name %></h1>
 
     <% if @club.photo.attached? %>
       <%= cl_image_tag @club.photo.key, height: 300, width: 400, crop: :fill %>
