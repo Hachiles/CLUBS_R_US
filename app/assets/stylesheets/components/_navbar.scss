@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: black;
+  padding: 0px 50px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -16,7 +17,7 @@ h1 {
 }
 
 .magenta {
-  color: magenta;
+  color: #8F0058;
 }
 
 .navbar-nav > li > .dropdown-menu { 
@@ -24,5 +25,5 @@ h1 {
 }
 
 .nav-item > .nav-link {
-  color: grey !important;
+  color: #8F0058 !important;
 }
