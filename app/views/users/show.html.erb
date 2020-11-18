@@ -2,20 +2,47 @@
 
   <h1>Dashboard</h1>
 
-  <p> My booking requests: </p>
-    <ul>
-      <% @bookings.each do |booking| %>
+  <div class="container">
+    <h2> The clubs I want to book: </h2>
+    <% @bookings.each do |booking| %>
+      <% club = booking.club %>
+      <h4>Booking of <strong><%= club.name %></strong></h4>
+      <ul>
         <li>
-          <% club = Club.where(:id == booking.club_id).first %>
-          <%= club.name %>, Status: <%= booking.status %>, Start date: <%= booking.start_time %>
+          Start date: <%= booking.start_time %>
         </li>
-      <% end %>
-    </ul>
+        <li>
+          End date: <%= booking.end_time %>
+        </li>
+        <li>
+          Booking status: <strong><%= booking.status %></strong>
+        </li>
+      </ul>
+    <% end %>
+  </div>
 
-  <p> My clubs that people want to book:</p> 
-    <ul>
-      <% @clubs.each do |club| %>
-        <li><%= club.name %></li>
+  <div class="container">
+    <h2> My clubs that people want to book: </h2>
+    <% @clubs.each do |club| %>
+      <% club.bookings.each do |booking| %>
+        <h4>Booking of <strong><%= club.name %></strong></h4>
+        <ul>
+          <li>
+            Start date: <%= booking.start_time %>
+          </li>
+          <li>
+            End date: <%= booking.end_time %>
+          </li>
+          <li>
+            Booking status: <strong><%= booking.status %></strong><br> 
+            <div class="change-status mt-2">
+              <%= simple_form_for booking, method: :patch do |f| %>
+              <%= f.input :status, label: "Change booking status", collection: Booking::STATUS %>
+              <%= f.submit %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
       <% end %>
-  </ul>
-</div>
+    <% end %>
+  </div>
