@@ -9,7 +9,7 @@
 require 'faker'
 require "open-uri"
 
-seed_user = User.create(username: "seeder", email: "avrilpryce@gmail.com", first_name: "Avril", last_name: "seed", password: "seed")
+seed_user = User.create(username: "seeder", email: "seeder@gmail.com", first_name: "seeder", last_name: "Mcseeder", password: "seed")
 
 real_addresses = [
   "Rudi-Dutschke-Straße 26, Berlin",
