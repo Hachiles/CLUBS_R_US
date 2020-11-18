@@ -9,7 +9,7 @@
 require 'faker'
 require "open-uri"
 
-seed_user = User.create(username: "seeder", email: "seeder@gmail.com", first_name: "seeder", last_name: "Mcseeder", password: "seed")
+# seed_user = User.create(username: "seeder", email: "seeder@gmail.com", first_name: "seeder", last_name: "Mcseeder", password: "seed")
 
 real_addresses = [
   "Rudi-Dutschke-Straße 26, Berlin",
@@ -45,7 +45,8 @@ puts "Starting seed"
         description: Faker::Lorem.paragraph_by_chars,
     )
     club.photo.attach(io: file, filename: 'club.png', content_type: 'image/png')
-    club.user = seed_user
+    # had to modify this for heroku push
+    club.user = User.where(id: 1)
     club.save
   end
   
