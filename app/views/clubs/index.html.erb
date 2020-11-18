@@ -6,18 +6,31 @@
     <%= link_to '➕ Add a new club', new_club_path, class:"btn btn-primary" %>
   <% end %>
   
-  <ul>
-    <% @clubs.each do |club| %>
-      <div class="card mt-5" style="width: 18rem;">
-        <% if club.photo.attached? %>
-          <%= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
-        <% end %>
-        <div class="card-body">
-          <h3 class="card-title"><strong><%= club.name %></strong></h3>
-            <p class="card-text"><%= club.description %></p>
-            <%= link_to 'More details', club_path(club), class:"btn btn-primary" %>
-        </div>
+
+
+   <% @clubs.each do |club| %>
+    <div class="card-container">
+      <div class="card-image">
+         <%# if club.photo.attached? %>
+          <%#= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
+        <%# end %>
+        <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
+        <a href="#" class="book-button">Book</a>
       </div>
-    <% end %>
-  </ul>
+      <div class="card-content">
+        <div class="content-left">
+          <p><%= club.name %></p> 
+           <p>Capacity: <%= club.capacity %></p> 
+        </div>
+        <div class="content-right">
+          <p><%= club.address %></p> 
+          <p><%= club.description %></p> 
+        </div> 
+      </div>
+    </div>
+   <% end %>
+
+
+
+
 </div>
