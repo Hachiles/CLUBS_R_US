@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <div class="main-content">
+  <div class="show-content">
 
     <h1><%= @club.name %></h1>
 
@@ -20,7 +20,7 @@
       <%= link_to "Book #{@club.name}", new_club_booking_path(@club), class:'btn btn-primary' %>
     <% end %>
 
-    <ul>
+    <ul class="show-page-list">
       <li>Capacity: <%= @club.capacity %></li>
       <li>Price per hour: <%= @club.hourly_price %>€</li>
       <li>Address: <%= @club.address %></li>
