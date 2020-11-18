@@ -23,8 +23,6 @@ class ClubsController < ApplicationController
     else
       render :new
     end
-
-    redirect_to club_path(@club)
   end
 
   def edit

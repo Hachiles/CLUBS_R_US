@@ -4,7 +4,6 @@
     <%= link_to '➕ Add a new club', new_club_path, class:"add-new-club-button" %>
   <% end %>
   
-
   <div class="row mb-5">
    <% @clubs.each do |club| %>
     <div class="card-container col-sm mt-5">
@@ -17,16 +16,20 @@
       </div>
       <div class="card-content">
         <div class="content-left">
-          <p><%= club.name %></p> 
-           <p>Capacity: <%= club.capacity %></p> 
+          <h4 class="mb-3"><strong><%= club.name %></strong></h4> 
+           <p class="mb-0">Capacity: <%= club.capacity %></p> 
+            <p class="mb-0">Price: € <%= club.hourly_price %></p> 
+            <p class="mb-2"><%= club.address %></p> 
         </div>
-        <div class="content-right">
-          <p><%= club.address %></p> 
-          <p><%= club.hourly_price %></p> 
-        </div> 
       </div>
     </div>
    <% end %>
    </div>
 </div>
+
+
+
+
+
+
 
