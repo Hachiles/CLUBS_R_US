@@ -1,4 +1,4 @@
-class ClubPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -14,10 +14,6 @@ class ClubPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user || user.admin
-  end
-
-  def destroy?
-    record.user == user  || user.admin
+    true
   end
 end
