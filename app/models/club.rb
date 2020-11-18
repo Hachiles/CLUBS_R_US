@@ -5,4 +5,6 @@ class Club < ApplicationRecord
   validates :capacity, :hourly_price, numericality: { only_integer: true }
   has_one_attached :photo
   has_many :bookings, dependent: :destroy
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

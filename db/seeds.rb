@@ -9,18 +9,43 @@
 require 'faker'
 require "open-uri"
 
-  20.times do
+seed_user = User.create(username: "seeder", email: "avrilpryce@gmail.com", first_name: "Avril", last_name: "seed", password: "seed")
+
+real_addresses = [
+  "Rudi-Dutschke-Straße 26, Berlin",
+  "Lindenstraße 9-14, Berlin",
+  "Potsdamer Platz 3, Berlin",
+  "Ritterstraße 26, Berlin",
+  "Yorckstraße 2, Berlin",
+  "Tucholskystraße 32, Berlin",
+  "Fasanenstraße 81, Berlin",exi
+  "Köpenicker Str. 76, Berlin",
+  "Karl-Marx-Allee 34, Berlin",
+  "Brunnenstraße 198, Berlin"
+]
+
+
+index_num = 0
+
+
+puts "Starting seed"
+
+
+  6.times do
     file = URI.open('https://source.unsplash.com/1600x900/?club')
+
+    index_num = index_num += 1 
+    # puts "Generating faker seed!" 
+    # puts index_num
     club = Club.new(
         name: Faker::Game.title,
         capacity: rand(50..2000),
         hourly_price: rand(50..200),
-        address: Faker::Address.full_address,
+        address: real_addresses[index_num],
         description: Faker::Lorem.paragraph_by_chars,
     )
     club.photo.attach(io: file, filename: 'club.png', content_type: 'image/png')
-    user = User.where(username: "sdfsdf").first
-    club.user = user
+    club.user = seed_user
     club.save
   end
   
