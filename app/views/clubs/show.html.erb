@@ -17,21 +17,21 @@
         <% end %>
       </div> <br>
 
-      <ul class="show-page-list">
+      <ul class="list-unstyled">
         <li class="list-item">Capacity: <%= @club.capacity %></li>
-        <li class="list-item">Price per hour: <%= @club.hourly_price %>€</li>
         <li class="list-item"> Address: <%= @club.address %></li>
         <li class="list-item">Description: <%= @club.description %></li>
       </ul>
-      <div class="d-flex justify-content-center">
-        <button>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-          </svg>
-            <%= link_to "Back", clubs_path %>
-        </button>
-
+      <div class="d-flex justify-content-between">
+          <button>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-left-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+            </svg>
+              <%= link_to "Back", clubs_path %>
+          </button>
+        <li class="list-unstyled list-item-price"><%= @club.hourly_price %>€ / <br> per hour</li>
       </div>
+
     </div>
     <div class="col show-page-content-box rounded">
       <% if @club.user_id != current_user.id %>
