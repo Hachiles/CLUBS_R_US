@@ -32,7 +32,7 @@
         <div class="container">
           <h1>Book <%= @club.name %></h1>
           <%= simple_form_for [@club, @booking] do |f| %>
-            <%= f.input :start_time, as: :date, label: "Start date" %>
+            <%= f.input :start_time, label: "Start date" %>
             <%= f.input :duration, label: "Duration (h)" %>
             <%= f.submit %>
           <% end %>
