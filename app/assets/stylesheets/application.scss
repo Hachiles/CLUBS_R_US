@@ -12,9 +12,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "clubs/new";
 
 body {
-  background-color: black;
+  background-image: black;
   position: relative;
   min-height: 100vh;
 }
