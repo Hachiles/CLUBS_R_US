@@ -1,35 +1,39 @@
-<div class="container mt-5">
+<div class="container-fluid">
 
-  <% if policy(Club).create? %>
-    <%= link_to '➕ Add a new club', new_club_path, class:"add-new-club-button" %>
-  <% end %>
   
-  <div id="map"
-    style="width: 100%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
-  <div class="row mb-5">
-   <% @clubs.each do |club| %>
-    <div class="card-container col-sm mt-5">
-      <div class="card-image">
-        <% if club.photo.attached? %>
-          <%= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
-        <% else %>
-          <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
+  <div class="row mx-4 justify-content-between">
+    <div class="col-6">
+      <% if policy(Club).create? %>
+        <%= link_to '➕ Add a new club', new_club_path, class:"mb-4 add-new-club-button" %>
+      <% end %>
+      <% @clubs.each do |club| %>
+       <%= link_to club_path(club) do %>
+          <div class="row my-4 border-bottom border-light-gray pb-4 club-cards">
+            <div class="col-6 card-image rounded">
+              <% if club.photo.attached? %>
+                <%= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
+              <% end %>
+            </div>
+            <div class="col-6 card-content">
+              <div class="content-left">
+                <h4 class="mb-3"><strong><%= club.name %></strong></h4> 
+                <p class="mb-0">Capacity: <%= club.capacity %></p> 
+                <p class="mb-0">Price: € <%= club.hourly_price %></p> 
+                <p class="mb-2"><%= club.address %></p> 
+              </div>
+            </div>
+          </div>
         <% end %>
-        <%= link_to 'More details', club_path(club), class:'view-more-button' %>
-      </div>
-      <div class="card-content">
-        <div class="content-left">
-          <h4 class="mb-3"><strong><%= club.name %></strong></h4> 
-          <p class="mb-0">Capacity: <%= club.capacity %></p> 
-          <p class="mb-0">Price: € <%= club.hourly_price %></p> 
-          <p class="mb-2"><%= club.address %></p> 
-        </div>
+      <% end %>
+    </div> 
+    <div class="col-6">
+      <div id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-   <% end %>
-   </div>
+  </div>
 </div>
+
