@@ -1,11 +1,12 @@
 .new-club {
-  background-color: #0E0F0F ;
-  opacity: 0.5;
-}
-.control-label{
-  color: grey !important; // some color
+  background-color: rgba(14, 15, 15, 0.4);
 }
 
-.container textarea {
-  background-color: yellow;
+//.grey-box {
+//  background-color: rgb(14, 15, 15);
+//}
+
+.form-control {
+  background-color: #26313A;
+  border: 2px solid #485e70;
 }

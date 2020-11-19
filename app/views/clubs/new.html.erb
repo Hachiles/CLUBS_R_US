@@ -11,33 +11,33 @@
     <% end %>
 </div>-->
 
-<div class="container bg-secondary mt-5">
+<div class="container new-club mt-5">
   <h1>Add a new club</h1>
   <%= simple_form_for @club do |f| %>
     <div class="row">
       <div class="col-sm-6">
-        <%= f.input :name, label: "Name" %>
+        <%= f.input :name, class: "grey-box", label: "Name" %>
       </div>
       <div class="col-sm-3">
-        <%= f.input :capacity, label: "Capacity", as: :numeric %>
+        <%= f.input :capacity, class: "grey-box", label: "Capacity", as: :numeric %>
       </div>
       <div class="col-sm-3">
-        <%= f.input :hourly_price, label: "Price per hour", as: :numeric %>
+        <%= f.input :hourly_price, class: "grey-box", label: "Price per hour", as: :numeric %>
       </div>
     </div>
     <div class="row">
       <div class="col-sm">
-        <%= f.input :address, label: "Address" %>
+        <%= f.input :address, class: "grey-box", label: "Address" %>
       </div>
     </div>
     <div class="row">
       <div class="col-sm">
-        <%= f.input :description, label: "Description" %>
+        <%= f.input :description, class: "grey-box", label: "Description" %>
       </div>
     </div>
     <div class="row justify-content-around">
-      <%= f.input :photo, as: :file %>
-      <%= f.submit %>
+      <%= f.input :photo, class: "button-dark-grey", as: :file %>
+      <%= f.button :submit, "Create club", class: "button-dark-grey" %>
     </div>
   <%end%>
 </div>
