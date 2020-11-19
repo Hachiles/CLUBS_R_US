@@ -18,7 +18,22 @@
   color: white;
   padding: 4px 16px;
   margin: 10px;
+  &:hover{
+    background: $pink-hover;
+    color: white;
+    text-decoration: none;
+  }
+}
 
+.button-dark-grey {
+  background: #26313A;
+  border-radius: 4px;
+  color: white;
+  &:hover{
+    background: #2b2e2e;
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .button-green {
@@ -27,7 +42,6 @@
   color: white;
   padding: 4px 16px;
   margin: 10px;
-
 }
 
 .button-orange {

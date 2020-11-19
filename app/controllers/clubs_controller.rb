@@ -6,7 +6,9 @@ class ClubsController < ApplicationController
     @markers = @clubs.geocoded.map do |club|
       {
         lat: club.latitude,
-        lng: club.longitude
+        lng: club.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { club: club }),
+        image_url: helpers.asset_url('Martini.png')
       }
     end
   end
@@ -17,7 +19,9 @@ class ClubsController < ApplicationController
     if @club.geocoded?
       @marker = [{
         lat: @club.latitude,
-        lng: @club.longitude
+        lng: @club.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { club: @club }),
+        image_url: helpers.asset_url('Martini.png')
       }]
     end
     @booking = Booking.new()
