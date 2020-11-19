@@ -20,6 +20,7 @@ class ClubsController < ApplicationController
         lng: @club.longitude
       }]
     end
+    @booking = Booking.new()
   end
   
   def new

@@ -1,11 +1,9 @@
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new()
-    @club = Club.find(params[:club_id])
-    authorize @booking
   end
 
   def create
+    @club = Club.find(params[:club_id])
     @booking = Booking.new(booking_params)
     authorize @booking
     @booking.user_id = current_user.id
