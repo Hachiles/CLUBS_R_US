@@ -11,9 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "clubs/index";
 
 body {
-  background-image: url("https://images.unsplash.com/photo-1581417478175-a9ef18f210c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
-  background-size: cover;
+  background-color: black;
+  position: relative;
+  min-height: 100vh;
 }
