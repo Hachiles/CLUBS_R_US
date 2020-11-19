@@ -5,8 +5,8 @@
     </div>
     <% end %>
   
-  <div class="row rounded">
-    <div class="col border show-page-content-box rounded">
+  <div class="row">
+    <div class="col show-page-content-box rounded">
       <h1 class="header-white text-center"><%= @club.name %></h1>
       <div class="d-flex justify-content-center">
         <% if policy(@club).edit? %>
@@ -24,10 +24,10 @@
         <li>Description: <%= @club.description %></li>
       </ul>
       <div class="d-flex justify-content-center">
-        <%= link_to "Back to the club list", clubs_path, class:'button-magenta' %>
+        <%= link_to "Back to the club list", clubs_path %>
       </div>
     </div>
-    <div class="col border show-page-content-box rounded">
+    <div class="col show-page-content-box rounded">
       <% if @club.user_id != current_user.id %>
         <div class="container">
           <h1>Book <%= @club.name %></h1>
@@ -41,6 +41,8 @@
       <% end %>
     </div>
   </div>
+
+  
 
  
   <div id="map"
