@@ -46,7 +46,7 @@ puts "Starting seed"
     )
     club.photo.attach(io: file, filename: 'club.png', content_type: 'image/png')
     # had to modify this for heroku push
-    club.user = User.find(1)
+    club.user = User.first
     club.save
   end
   
