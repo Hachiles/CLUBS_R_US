@@ -5,8 +5,8 @@
     </div>
     <% end %>
   
-  <div class="row">
-    <div class="col border show-page-content-box">
+  <div class="row rounded">
+    <div class="col border show-page-content-box rounded">
       <h1 class="header-white text-center"><%= @club.name %></h1>
       <div class="d-flex justify-content-center">
         <% if policy(@club).edit? %>
@@ -27,7 +27,7 @@
         <%= link_to "Back to the club list", clubs_path, class:'button-magenta' %>
       </div>
     </div>
-    <div class="col border show-page-content-box">
+    <div class="col border show-page-content-box rounded">
       <% if @club.user_id != current_user.id %>
         <div class="container">
           <h1>Book <%= @club.name %></h1>
