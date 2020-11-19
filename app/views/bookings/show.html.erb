@@ -1,0 +1,54 @@
+<div class="container mt-5">
+
+  <h1>Bookings</h1>
+
+  <div class="container">
+    <h2> The clubs I want to book: </h2>
+    <% @bookings.each do |booking| %>
+      <% club = booking.club %>
+      <h4>Booking of <strong><%= club.name %></strong></h4>
+      <ul>
+        <li>
+          Start date: <%= booking.start_time %>
+        </li>
+        <li>
+          Duration: <%= booking.duration %>h
+        </li>
+        <li>
+          Price: <%= booking.total_price %>€
+        </li>
+        <li>
+          Booking status: <strong><%= booking.status %></strong>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="container">
+    <h2> My clubs that people want to book: </h2>
+    <% @clubs.each do |club| %>
+      <% club.bookings.each do |booking| %>
+        <h4>Booking of <strong><%= club.name %></strong></h4>
+        <ul>
+          <li>
+            Start date: <%= booking.start_time %>
+          </li>
+          <li>
+            Duration: <%= booking.duration %>h
+          </li>
+          <li>
+          Price: <%= booking.total_price %>€
+          </li>
+          <li>
+            Booking status: <strong><%= booking.status %></strong><br> 
+            <div class="change-status mt-2">
+              <%= simple_form_for booking, method: :patch do |f| %>
+              <%= f.input :status, label: "Change booking status", collection: Booking::STATUS %>
+              <%= f.submit %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
