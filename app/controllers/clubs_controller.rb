@@ -15,10 +15,10 @@ class ClubsController < ApplicationController
     @club = Club.find(params[:id])
     authorize @club
     if @club.geocoded?
-      @marker = {
+      @marker = [{
         lat: @club.latitude,
         lng: @club.longitude
-      }
+      }]
     end
   end
   
