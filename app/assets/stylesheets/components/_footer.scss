@@ -23,7 +23,7 @@
   padding: 10px 0px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .logo {
@@ -38,6 +38,9 @@
 .text-center {
   text-align: center;
   margin: 0px 20px;
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .line-height-small {
@@ -51,4 +54,6 @@
 .padding-top {
   margin-top: 35px;
 }
+
+
 
