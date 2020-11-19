@@ -1,7 +1,10 @@
 <div class="container mt-5">
-  <% if @club.photo.attached? %>
-    <%= cl_image_tag @club.photo.key, height: 300, width: 690, crop: :fill %>
-  <% end %>
+    <% if @club.photo.attached? %>
+    <div class="d-flex justify-content-center">
+      <%= cl_image_tag @club.photo.key, height: 300, width: 690, crop: :fill %>
+    </div>
+    <% end %>
+  
   <div class="row">
     <div class="col border">
       <h1 class="header-white text-center"><%= @club.name %></h1>
