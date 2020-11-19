@@ -7,7 +7,8 @@ class ClubsController < ApplicationController
       {
         lat: club.latitude,
         lng: club.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { club: club })
+        infoWindow: render_to_string(partial: "info_window", locals: { club: club }),
+        image_url: helpers.asset_url('Martini.png')
       }
     end
   end
@@ -19,7 +20,8 @@ class ClubsController < ApplicationController
       @marker = [{
         lat: @club.latitude,
         lng: @club.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { club: @club })
+        infoWindow: render_to_string(partial: "info_window", locals: { club: @club }),
+        image_url: helpers.asset_url('Martini.png')
       }]
     end
     @booking = Booking.new()
