@@ -6,7 +6,8 @@ class ClubsController < ApplicationController
     @markers = @clubs.geocoded.map do |club|
       {
         lat: club.latitude,
-        lng: club.longitude
+        lng: club.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { club: club })
       }
     end
   end
@@ -17,7 +18,8 @@ class ClubsController < ApplicationController
     if @club.geocoded?
       @marker = [{
         lat: @club.latitude,
-        lng: @club.longitude
+        lng: @club.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { club: @club })
       }]
     end
     @booking = Booking.new()
