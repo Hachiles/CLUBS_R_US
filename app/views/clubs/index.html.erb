@@ -4,6 +4,12 @@
     <%= link_to '➕ Add a new club', new_club_path, class:"add-new-club-button" %>
   <% end %>
   
+  <div id="map"
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
   <div class="row mb-5">
    <% @clubs.each do |club| %>
     <div class="card-container col-sm mt-5">
@@ -17,19 +23,12 @@
       <div class="card-content">
         <div class="content-left">
           <h4 class="mb-3"><strong><%= club.name %></strong></h4> 
-           <p class="mb-0">Capacity: <%= club.capacity %></p> 
-            <p class="mb-0">Price: € <%= club.hourly_price %></p> 
-            <p class="mb-2"><%= club.address %></p> 
+          <p class="mb-0">Capacity: <%= club.capacity %></p> 
+          <p class="mb-0">Price: € <%= club.hourly_price %></p> 
+          <p class="mb-2"><%= club.address %></p> 
         </div>
       </div>
     </div>
    <% end %>
    </div>
 </div>
-
-
-
-
-
-
-
