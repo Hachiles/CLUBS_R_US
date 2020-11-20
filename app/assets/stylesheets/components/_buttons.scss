@@ -27,11 +27,13 @@
 
 .button-dark-grey {
   background: #26313A;
-  border-radius: 4px;
   color: white;
+  opacity: 0.5;
+  padding: 4px 50px;
+  margin: 10px;
   &:hover{
     background: #2b2e2e;
-    color: white;
+    opacity: 1;
     text-decoration: none;
   }
 }

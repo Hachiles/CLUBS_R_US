@@ -1,6 +1,9 @@
 .new-club {
-  background-color: rgba(14, 15, 15, 0.4);
+  background-color: rgba(38, 41, 41, 0.1);
+  background-size: 100vh;
+
 }
+
 
 //.grey-box {
 //  background-color: rgb(14, 15, 15);
@@ -9,4 +12,11 @@
 .form-control {
   background-color: #26313A;
   border: 2px solid #485e70;
+}
+
+.image-container-new {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("newclubbg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  height:600px;
 }

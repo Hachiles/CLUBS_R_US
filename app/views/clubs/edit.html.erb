@@ -10,41 +10,37 @@
     <% end %>
 </div>-->
 
-<div class="container">
-  <% if @club.photo.attached? %>
-    <%= cl_image_tag @club.photo.key, class:"card-img-top", crop: :fill %>
-  <% else %>
-    <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
-  <% end %>
-
-  <div class="container new-club mt-5">
-  <h1>Add a new club</h1>
-  <%= simple_form_for @club do |f| %>
-    <div class="row">
-      <div class="col-sm-6">
-        <%= f.input :name, class: "grey-box", label: "Name" %>
-      </div>
-      <div class="col-sm-3">
-        <%= f.input :capacity, class: "grey-box", label: "Capacity", as: :numeric %>
-      </div>
-      <div class="col-sm-3">
-        <%= f.input :hourly_price, class: "grey-box", label: "Price per hour", as: :numeric %>
-      </div>
+<div class="image-container-edit" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @club.photo.key, crop: :fill %>'); background-repeat: no-repeat; background-size: center;">
+  <div class="container">
+    <div class="container new-club mt-5">
+      <h1 class="text-light font-weight-bold">Edit <%= @club.name %></h1>
+      <%= simple_form_for @club do |f| %>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= f.input :name, class: "grey-box", label: "Name" %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.input :capacity, class: "grey-box", label: "Capacity", as: :numeric %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.input :hourly_price, class: "grey-box", label: "Price p/h", as: :numeric %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <%= f.input :address, class: "grey-box", label: "Address" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <%= f.input :description, class: "grey-box", label: "Description" %>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <%= f.input :photo, class: "button-dark-grey", as: :file %>
+          <%= f.button :submit, "Create club", class: "button-dark-grey" %>
+        </div>
+      <%end%>
     </div>
-    <div class="row">
-      <div class="col-sm">
-        <%= f.input :address, class: "grey-box", label: "Address" %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm">
-        <%= f.input :description, class: "grey-box", label: "Description" %>
-      </div>
-    </div>
-    <div class="row justify-content-around">
-      <%= f.input :photo, class: "button-dark-grey", as: :file %>
-      <%= f.button :submit, "Create club", class: "button-dark-grey" %>
-    </div>
-  <%end%>
   </div>
 </div>

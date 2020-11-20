@@ -13,9 +13,15 @@
 @import "components/index";
 @import "pages/index";
 @import "clubs/new";
+@import "bookings/show";
 
 body {
   background-color: black;
   position: relative;
   min-height: 100vh;
+}
+
+ .container {
+padding-bottom: 2.5rem;
+padding-top: 2.5rem;
 }
