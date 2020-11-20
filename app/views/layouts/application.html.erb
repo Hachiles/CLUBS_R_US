@@ -12,12 +12,12 @@
   </head>
 
   <body>
-    <% if !current_page?(controller: 'pages', action: 'home') %>
+    <% unless @no_navbar %>
       <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
-    <% if !current_page?(controller: 'pages', action: 'home') %>
+    <% unless @no_navbar %>
       <%= render 'shared/footer'%>
     <% end %>
   </body>
