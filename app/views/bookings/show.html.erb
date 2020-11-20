@@ -1,5 +1,4 @@
-<div class="container mt-5">
-
+<div class="container mt-5" id="my-bookings-container">
   <h1>Bookings</h1>
   <% if @bookings.count > 0 %>
     <div class="container">
@@ -24,7 +23,6 @@
       <% end %>
     </div>
   <% end %>
-
   <% if @clubs.count > 0 %>
     <div class="container">
       <h2> My incoming booking requests: </h2>
@@ -55,3 +53,4 @@
       <% end %>
     </div>
   <% end %>
+</div>
