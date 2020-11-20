@@ -12,9 +12,9 @@
   </head>
 
   <body>
-    <% if !current_page?(controller: 'pages', action: 'home') %>
+    <%# if !current_page?(controller: 'pages', action: 'home') %>
       <%= render 'shared/navbar' %>
-    <% end %>
+    <%# end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer'%>
