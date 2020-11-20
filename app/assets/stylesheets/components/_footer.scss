@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   height: 60px;
   padding: 0px 50px;
+  padding-left: 0px;
   color: rgba(0,0,0,0.3);
   bottom: 0;
   width: 100%;
@@ -12,7 +13,7 @@
 
 .footer-links {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 
 }
 .footer-links a {
@@ -33,6 +34,11 @@
 .row1 {
   align-items: space-between;
   justify-content: space-evenly;
+}
+
+.row0 {
+  align-items: space-between;
+  justify-content: left;
 }
 
 .text-center {
