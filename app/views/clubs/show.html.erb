@@ -8,14 +8,7 @@
   <div class="row">
     <div class="col show-page-content-box rounded">
       <h1 class="header-white text-center"><%= @club.name %></h1>
-      <div class="d-flex justify-content-center">
-        <% if policy(@club).edit? %>
-          <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
-        <% end %>
-        <% if policy(@club).destroy? %>
-          <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
-        <% end %>
-      </div> <br>
+     
 
       <ul class="list-unstyled">
         <li class="list-item">
@@ -45,9 +38,20 @@
             <%= f.input :start_time, as: :date, label: "Start date" %>
             <%= f.input :start_time, as: :time, label: "Start time" %>
             <%= f.input :duration, label: "Duration (h)" %>
-            <%= f.submit %>
+            <%= f.submit "Book now", class:"btn btn-primary" %>
           <% end %>
         </div>
+          <% else  %> 
+             <div class="d-flex justify-content-center">
+              <% if policy(@club).edit? %>
+                <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
+              <% end %>
+              <% if policy(@club).destroy? %>
+                <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+            </div> <br>
+
+
       <% end %>
     </div>
   </div>
