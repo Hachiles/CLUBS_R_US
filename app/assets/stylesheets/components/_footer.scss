@@ -1,13 +1,10 @@
 .footer {
   background: black;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 60px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  text-align: center;
-  position: absolute;
   bottom: 0;
   width: 100%;
   height: 2.5rem;            /* Footer height */
@@ -15,7 +12,7 @@
 
 .footer-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
 }
 .footer-links a {
@@ -23,17 +20,40 @@
   opacity: 1;
   text-decoration: none;
   font-size: 24px;
-  padding: 0px 10px;
+  padding: 10px 0px;
 }
 .footer-links a:hover {
-  opacity: 1;
+  opacity: 0.5;
 }
 
-.slogan {
-  align-items: center;
+.logo {
+  max-height: 100px;
 }
 
-.footer-logo {
-  border-top: 20px 0px;
+.row1 {
+  align-items: space-between;
+  justify-content: space-evenly;
 }
+
+.text-center {
+  text-align: center;
+  margin: 0px 20px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.line-height-small {
+  line-height: 50%;
+}
+
+.line-height-large {
+  line-height: 150%;
+}
+
+.padding-top {
+  margin-top: 35px;
+}
+
+
 
