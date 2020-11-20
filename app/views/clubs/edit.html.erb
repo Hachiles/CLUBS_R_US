@@ -1,4 +1,4 @@
-<div class="container mt-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/hachiles/image/upload/v1605601697/pexels-mark-angelo-1587927_ytlhoq.jpg);">
+<!--<div class="container mt-5 bg-secondary">
   <h1>Edit <%= @club.name %></h1>
     <%= simple_form_for @club do |f| %>
       <%= f.input :name, label: "Name" %>
@@ -8,4 +8,43 @@
       <%= f.input :description, label: "Description" %>
       <%= f.submit %>
     <% end %>
+</div>-->
+
+<div class="container">
+  <% if @club.photo.attached? %>
+    <%= cl_image_tag @club.photo.key, class:"card-img-top", crop: :fill %>
+  <% else %>
+    <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
+  <% end %>
+
+  <div class="container new-club mt-5">
+  <h1>Add a new club</h1>
+  <%= simple_form_for @club do |f| %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :name, class: "grey-box", label: "Name" %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.input :capacity, class: "grey-box", label: "Capacity", as: :numeric %>
+      </div>
+      <div class="col-sm-3">
+        <%= f.input :hourly_price, class: "grey-box", label: "Price per hour", as: :numeric %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.input :address, class: "grey-box", label: "Address" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <%= f.input :description, class: "grey-box", label: "Description" %>
+      </div>
+    </div>
+    <div class="row justify-content-around">
+      <%= f.input :photo, class: "button-dark-grey", as: :file %>
+      <%= f.button :submit, "Create club", class: "button-dark-grey" %>
+    </div>
+  <%end%>
+  </div>
 </div>

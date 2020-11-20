@@ -1,2 +1,52 @@
 // Import page-specific CSS files here.
 @import "home";
+
+// .main-container {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap:16px;
+// }
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.club-cards {
+  color: #D6D5D5;
+  font-family: Montserrat;
+  font-style: lighter;
+  font-weight: lighter;
+  font-size: 18px;
+  line-height: 26px;
+  transition: all .5s ease-in-out; 
+
+}
+
+.club-cards:hover {
+  background: rgba(202, 45, 142, 0.28);
+  border: 1px solid #3F4E5A;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+  transform: scale(1.01);
+}
+
+.club-cards:hover > .card-image {
+  filter: grayscale(5%);
+}
+
+.title {
+  font-family: $headers-font;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 16px;
+  letter-spacing: -0.318182px;
+}
+
+.card-image {
+  filter: grayscale(95%);
+}
+

@@ -2,11 +2,29 @@ class ClubsController < ApplicationController
   
   def index
     @clubs = policy_scope(Club).order(created_at: :desc)
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+    @markers = @clubs.geocoded.map do |club|
+      {
+        lat: club.latitude,
+        lng: club.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { club: club }),
+        image_url: helpers.asset_url('Martini.png')
+      }
+    end
   end
   
   def show
     @club = Club.find(params[:id])
     authorize @club
+    if @club.geocoded?
+      @marker = [{
+        lat: @club.latitude,
+        lng: @club.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { club: @club }),
+        image_url: helpers.asset_url('Martini.png')
+      }]
+    end
+    @booking = Booking.new()
   end
   
   def new

@@ -1,35 +1,44 @@
-<div class="container mt-5">
+<div class="container-fluid">
 
-  <% if policy(Club).create? %>
-    <%= link_to '➕ Add a new club', new_club_path, class:"add-new-club-button" %>
-  <% end %>
   
-  <div class="row mb-5">
-   <% @clubs.each do |club| %>
-    <div class="card-container col-sm mt-5">
-      <div class="card-image">
-         <%# if club.photo.attached? %>
-          <%#= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
-        <%# end %>
-        <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
-        <%= link_to 'More details', club_path(club), class:'view-more-button' %>
-      </div>
-      <div class="card-content">
-        <div class="content-left">
-          <h4 class="mb-3"><strong><%= club.name %></strong></h4> 
-           <p class="mb-0">Capacity: <%= club.capacity %></p> 
-            <p class="mb-0">Price: € <%= club.hourly_price %></p> 
-            <p class="mb-2"><%= club.address %></p> 
-        </div>
+  <div class="row mx-4 justify-content-between">
+    <div class="col-6">
+      <div class="row" >
+          <% if policy(Club).create? %>
+        <%= link_to 'Add a club', new_club_path, class:"btn btn-outline-dark btn-block add-club" %>
+  
+      <% end %>
+     </div>
+      <% @clubs.each do |club| %>
+       <%= link_to club_path(club) do %>
+          <div class="row my-2 rounded border border-secondary club-cards">
+            <div class="col-5 card-image rounded ml-0 pl-0">
+              <% if club.photo.attached? %>
+                <%= cl_image_tag club.photo.key, class:"card-img-top", crop: :fill %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60" alt="">
+              <% end %>
+            </div>
+            <div class="col-5 card-content">
+              <div class="content-left">
+                <h4 class="mb-3 pt-3"><strong><%= club.name %></strong></h4> 
+                <p class="mb-0"> <i class="fas fa-user"></i>  <%=  club.capacity %></p> 
+                <p class="mb-2"><%= club.address %></p> 
+              </div>
+            </div>
+            <div class="col-2 text-left ">
+              <p class="mb-0"> <strong><%= club.hourly_price %>€</strong>/hr</p> 
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div> 
+    <div class="col-6">
+      <div id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-   <% end %>
-   </div>
+  </div>
 </div>
-
-
-
-
-
-
 
