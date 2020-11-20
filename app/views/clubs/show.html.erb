@@ -7,47 +7,53 @@
   
   <div class="row">
     <div class="col show-page-content-box rounded">
-      <h1 class="header-white text-center"><%= @club.name %></h1>
-      <div class="d-flex justify-content-center">
-        <% if policy(@club).edit? %>
-          <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
-        <% end %>
-        <% if policy(@club).destroy? %>
-          <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
-        <% end %>
-      </div> <br>
+      <h1 class="text-uppercase text-primary mt-3"><%= @club.name %></h1>
+     
 
       <ul class="list-unstyled">
-        <li class="list-item">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
-        </svg>
+        <li class="list-item text-info">
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-people-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+          </svg>
         Capacity: <%= @club.capacity %>
         </li>
-        <li class="list-item"> Address: <%= @club.address %></li>
-        <li class="list-item">Description: <%= @club.description %></li>
+        <li class="list-item text-info"> 
+          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-alt-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+          </svg>
+        Address: <%= @club.address %>
+        </li>
+        <li class="list-item mt-5">
+           <%= @club.description %>
+        </li>
       </ul>
-      <div class="d-flex justify-content-between">
-          
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="capacity-icon bi bi-arrow-left-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-            </svg>
-              <%= link_to "Back", clubs_path %>
-          
-        <li class="list-unstyled list-item-price"><%= @club.hourly_price %> € <br> HOUR</li>
+      <div class="d-flex justify-content-between align-items-center">
+        <%= link_to "← Back", clubs_path %>
+        <p class="list-unstyled list-item-price"><%= @club.hourly_price %> € <br> HOUR</p>
       </div>
 
     </div>
     <div class="col show-page-content-box rounded">
       <% if @club.user_id != current_user.id %>
-        <div class="container">
-          <%= simple_form_for [@club, @booking] do |f| %>
+        <div class="w-100 h-100 container d-flex align-items-center justify-content-center">
+          <%= simple_form_for [@club, @booking], defaults: { input_html: { class: 'w-100' } } do |f| %>
             <%= f.input :start_time, as: :date, label: "Start date" %>
             <%= f.input :start_time, as: :time, label: "Start time" %>
             <%= f.input :duration, label: "Duration (h)" %>
-            <%= f.submit %>
+            <%= f.submit "Book now", class:"btn btn-primary w-100" %>
           <% end %>
         </div>
+          <% else  %> 
+             <div class="d-flex justify-content-center">
+              <% if policy(@club).edit? %>
+                <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
+              <% end %>
+              <% if policy(@club).destroy? %>
+                <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+            </div> <br>
+
+
       <% end %>
     </div>
   </div>
