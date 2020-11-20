@@ -28,3 +28,18 @@
 .container {
   padding-bottom: 2.5rem;    
 }
+
+#myVideo {
+    position: fixed;
+    right: -950px;
+    bottom: -622px;
+    min-width: 90%;
+    min-height: 90%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
