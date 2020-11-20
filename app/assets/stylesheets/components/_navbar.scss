@@ -31,3 +31,19 @@ h1 {
 .navbar-logo {
   max-height: 100px;
 }
+
+.hamburger {
+  height: 10px;
+  margin: 6px 0;
+}
+
+#navbarDropdown {
+  height: 40px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.navbar-nav > li > .dropdown-menu {
+    background-color: black;
+}
