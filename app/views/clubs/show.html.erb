@@ -33,7 +33,7 @@
       </div>
 
     </div>
-    <div class="col show-page-content-box rounded">
+    <div class="col show-page-content-box rounded d-flex justify-content-center align-items-center">
       <% if @club.user_id != current_user.id %>
         <div class="w-100 h-100 container d-flex align-items-center justify-content-center">
           <%= simple_form_for [@club, @booking], defaults: { input_html: { class: 'w-100' } } do |f| %>
@@ -46,10 +46,10 @@
           <% else  %> 
              <div class="d-flex justify-content-center">
               <% if policy(@club).edit? %>
-                <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-green' %> <br>
+                <%= link_to  "Edit #{@club.name}", edit_club_path, class:'button-dark-green' %> <br>
               <% end %>
               <% if policy(@club).destroy? %>
-                <%= link_to "Delete #{@club.name}", club_path, class:'button-orange', method: :delete, data: { confirm: "Are you sure?" } %>
+                <%= link_to "Delete #{@club.name}", club_path, class:'button-red', method: :delete, data: { confirm: "Are you sure?" } %>
               <% end %>
             </div> <br>
 
